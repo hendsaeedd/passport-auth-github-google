@@ -45,7 +45,6 @@ passport.use(
   )
 )
 
-
 router.get('/', passport.authenticate('github', { scope: ['user:email'] }))
 
 router.get(
@@ -60,17 +59,4 @@ router.get('/', async (req, res) => {
   res.render(path.join(__dirname, 'views', 'main.html'))
 })
 
-router.get('/error', (req, res) => res.send('Error logging in via GitHub..'))
-
-router.get('/signout', (req, res) => {
-  try {
-    req.session.destroy(function (err) {
-      console.log('Session destroyed.')
-    })
-    res.render('auth')
-  } catch (err) {
-    res.status(400).send({ message: 'Failed to sign out GitHub user' })
-  }
-})
-
-module.exports = router
+export { router }

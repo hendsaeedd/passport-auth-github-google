@@ -58,17 +58,4 @@ router.get('/', async (req, res) => {
   res.render(path.join(__dirname, 'views', 'main.html'))
 })
 
-router.get('/error', (req, res) => res.send('Error logging in via google..'))
-
-router.get('/signout', (req, res) => {
-  try {
-    req.session.destroy(function (err) {
-      console.log('session destroyed.')
-    })
-    res.render('auth')
-  } catch (err) {
-    res.status(400).send({ message: 'Failed to sign out fb user' })
-  }
-})
-
-module.exports = router
+export { router }
