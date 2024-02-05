@@ -4,16 +4,15 @@ import passport from 'passport'
 import path from 'path'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+//routes
+import { router as userRouter} from'./routes/user'
+import { router as githubAuth} from'./routes/github'
+import { router as googleAuth} from'./routes/google'
 
 dotenv.config()
 const app = express()
 const port = process.env.PORT || 3000
 const url = 'mongodb://127.0.0.1:27017/passport-auth'
-
-//routes
-const userRouter = require('./routes/user')
-const githubAuth = require('./routes/github')
-const googleAuth = require('./routes/google')
 
 //middleware
 app.use(express.json())

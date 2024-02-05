@@ -24,4 +24,4 @@ router.delete('/:name', deleteUser)
 //update user
 router.patch('/:name', updateUser)
 
-module.exports = router
+export { router }
