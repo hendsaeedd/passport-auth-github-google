@@ -3,14 +3,14 @@ import mongoose, { Document, Schema } from 'mongoose'
 interface User {
   email: string
   name: string
-  id: string
   accountId: string
 }
 
 const userSchema: any = new mongoose.Schema<User>({
   email: {
     type: String,
-    lowercase: true,
+    required: true,
+    unique: true,
   },
   name: {
     type: String,
